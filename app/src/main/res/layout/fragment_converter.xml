@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.ayia.fxconverter.presentation.converter.ConverterViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+
+        <View
+            style="@style/BottomSheetCloseIndicator"
+            />
+
+        <TextView
+            style="@style/BottomSheetTitleTextStyle"
+            android:text="@string/label_convert_currency"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            >
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilFromCurrency"
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:endIconMode="custom"
+                app:endIconDrawable="@drawable/ic_search"
+                app:errorEnabled="true"
+                app:showFromValidation="@{vm.fromCurrencyOption.value}"
+                app:to="@{vm.toCurrencyOption.value}"
+                android:hint="@string/label_from_currency"
+                app:helperTextEnabled="true"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFromCurrency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:text="@{vm.fromCurrencyOption.name}"
+                     />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilFromAmount"
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
+                app:helperTextEnabled="true"
+                android:layout_marginTop="8dp"
+                android:hint="@string/label_amount"
+                app:showAmountValidation="@{vm.amount}"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFromAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@={vm.amount}"
+                    android:inputType="numberDecimal" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilToCurrency"
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:endIconMode="custom"
+                app:endIconDrawable="@drawable/ic_search"
+                app:errorEnabled="true"
+                app:helperTextEnabled="true"
+                android:layout_marginTop="8dp"
+                app:showToValidation="@{vm.toCurrencyOption.value}"
+                app:from="@{vm.fromCurrencyOption.value}"
+                android:hint="@string/label_to_currency"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etToCurrency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:text="@{vm.toCurrencyOption.name}"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:id="@+id/layoutResult"
+                android:layout_height="wrap_content"
+                tools:visibility="visible"
+                android:visibility="gone"
+                >
+
+                <TextView
+                    android:id="@+id/tvResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:padding="8dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorSecondary"
+                    android:layout_marginHorizontal="4dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:text="10 EUR = 15.0 USD"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    />
+
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/progressBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="true"
+
+                    style="@style/Widget.App.LinearProgressIndicator"
+                    android:paddingHorizontal="4dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tvResult"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tvResult"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnConvert"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="8dp"
+                android:gravity="center"
+                android:text="@string/label_convert"
+                style="@style/BottomSheetDialogButton"
+                android:layout_marginTop="16dp"
+                android:enabled="@{vm.validForm}"
+                android:onClick="@{()-> vm.convert()}"
+                android:layout_gravity="end"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+</layout>

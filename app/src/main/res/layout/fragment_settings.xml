@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="vm"
+            type="com.ayia.fxconverter.presentation.settings.SettingsViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:context=".feature.settings.SettingsFragment">
+
+        <View
+            style="@style/BottomSheetCloseIndicator"
+            />
+
+        <TextView
+            style="@style/BottomSheetTitleTextStyle"
+            android:text="@string/label_settings"
+            />
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+           android:layout_marginTop="16dp"
+            style="@style/SettingsLayoutStyle"
+            android:id="@+id/currency"
+            android:onClick="@{listener::onClick}"
+            >
+
+            <LinearLayout
+                style="@style/SettingsLayout2Style"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivFlag"
+                app:layout_constraintEnd_toEndOf="parent"
+                >
+
+                <TextView
+                    style="@style/SettingsTextLabelStyle"
+                    android:text="Your currency"
+                    />
+
+                <TextView
+                    style="@style/SettingsTextValueStyle"
+                    tools:text="Nigerian Naira"
+                    android:text="@{vm.appCurrency.getDisplayName()}"
+                     />
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/ivFlag"
+                style="@style/SettingsImageViewStyle"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="@drawable/flag_image_background"
+                app:setFlagImage96="@{vm.infoObs.getFlagUrl()}" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            style="@style/SettingsLayoutStyle"
+            android:onClick="@{listener::onClick}"
+            android:id="@+id/layoutTheme"
+            >
+
+            <ImageView
+                android:id="@+id/ivTheme"
+                style="@style/SettingsImageViewStyle"
+                app:srcCompat="@drawable/ic_theme_24"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+
+            <LinearLayout
+                style="@style/SettingsLayout2Style"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivTheme"
+                >
+
+
+                <TextView
+                    style="@style/SettingsTextLabelStyle"
+                    android:text="@string/label_theme"
+                    />
+
+                <TextView
+                    style="@style/SettingsTextValueStyle"
+                    app:setTheme="@{vm.themePosObs}"
+                    tools:text="@string/label_follow_system"
+                    />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            style="@style/SettingsLayoutStyle"
+            android:onClick="@{listener::onClick}"
+            android:id="@+id/layoutClearData"
+            >
+
+            <ImageView
+                android:id="@+id/ivClearData"
+                style="@style/SettingsImageViewStyle"
+                app:srcCompat="@drawable/ic_clear_cache"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+
+            <LinearLayout
+                style="@style/SettingsLayout2Style"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivClearData"
+                >
+
+
+                <TextView
+                    style="@style/SettingsTextLabelStyle"
+                    android:text="@string/label_clear_data"
+                    />
+
+                <TextView
+                    style="@style/SettingsTextValueStyle"
+                    android:text="@string/msg_clear_data"
+                    />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            style="@style/SettingsLayoutStyle"
+            android:onClick="@{listener::onClick}"
+            android:id="@+id/layoutAbout"
+            >
+
+            <ImageView
+                android:id="@+id/ivAbout"
+                style="@style/SettingsImageViewStyle"
+                app:srcCompat="@drawable/ic_about"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+
+            <LinearLayout
+                style="@style/SettingsLayout2Style"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivAbout"
+                >
+
+
+                <TextView
+                    style="@style/SettingsTextLabelStyle"
+                    android:text="@string/label_about"
+                    />
+
+                <TextView
+                    style="@style/SettingsTextValueStyle"
+                    android:text="@string/msg_about"
+                    />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            style="@style/SettingsLayoutStyle"
+            android:onClick="@{listener::onClick}"
+            android:id="@+id/layoutRateApp"
+            >
+
+            <ImageView
+                android:id="@+id/ivRateApp"
+                style="@style/SettingsImageViewStyle"
+                app:srcCompat="@drawable/ic_rate"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+
+            <LinearLayout
+                style="@style/SettingsLayout2Style"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivRateApp"
+                >
+
+                <TextView
+                    style="@style/SettingsTextLabelStyle"
+                    android:text="@string/label_rate_app"
+                    />
+
+                <TextView
+                    style="@style/SettingsTextValueStyle"
+                    android:text="@string/msg_rate_app"
+                    />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    </LinearLayout>
+
+
+</layout>

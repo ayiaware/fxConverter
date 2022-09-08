@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">@color/yellow_900</color>
+    <color name="colorPrimaryVariant">@color/yellow_900</color>
+
+    <color name="colorSecondaryVariant">@color/yellow_200</color>
+    <color name="colorSecondary">@color/yellow_200</color>
+
+
+    <color name="color_window_background">@color/gray_900</color>
+
+
+</resources>

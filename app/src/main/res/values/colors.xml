@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">@color/yellow_900</color>
+    <color name="colorPrimaryVariant">@color/yellow_900</color>
+
+    <color name="colorSecondaryVariant">@color/yellow_700</color>
+    <color name="colorSecondary">@color/yellow_700</color>
+
+    <color name="color_window_background">@color/white</color>
+
+
+    <color name="yellow_900">#F57F17</color>
+    <color name="yellow_700">#FBC02D</color>
+    <color name="yellow_800">#F9A825</color>
+    <color name="yellow_300">#FFF176</color>
+    <color name="yellow_200">#FFF59D</color>
+
+    <color name="black">#FF000000</color>
+    <color name="gray_900">#212121</color>
+
+    <color name="white">#FFFFFFFF</color>
+
+
+    <color name="gradient_default_start">@color/yellow_900</color>
+    <color name="gradient_default_end">@color/yellow_800</color>
+
+    <color name="green2">#1B5E20</color>
+    <color name="green1">#4CAF50</color>
+
+    <color name="gradient_error_start">@color/green1</color>
+    <color name="gradient_error_end">@color/green2</color>
+
+
+</resources>
