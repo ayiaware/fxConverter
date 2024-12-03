@@ -40,7 +40,6 @@ FxConverter provides exchange rate information for various currencies around the
 ## Download
 Go to the [Releases](https://github.com/ayiaware/fxconverter/releases) to download the latest APK.
 
-Go to [Google play](https://play.google.com/store/apps/details?id=com.ayia.fxconverter)
 
 ## Tech stack & Open-source libraries
 - API source [ExchangeRate-API](https://app.exchangerate-api.com/)
